@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase-def logicName="SAMPLE_CASE">
+    <!-- set variable (e.g deviceId ) for case   -->
+    <var name="MUTDevice">${deviceId0}</var>
+    <!-- prepare some thing in init block -->
+    <init>
+    </init>
+    <!-- do main testing steps in main block -->
+    <main>
+        <action name="Comments" sleep="500">
+            <param name="comments">Hello C-ATS</param>
+        </action>
+        <loop gaugeValue="5" increment="1" initValue="0">
+        <action name="SwipePage" sleep="500">
+              <param name="deviceId">${MUTDevice}</param>
+              <param name="direction">RIGHT</param>
+              <param name="times">2</param>
+              <param name="snapshot">true</param>
+        </action>
+        <action name="SwipePage" sleep="500">
+              <param name="deviceId">${MUTDevice}</param>
+              <param name="direction">LEFT</param>
+              <param name="times">2</param>
+              <param name="snapshot">true</param>
+        </action>
+        </loop>
+
+    </main>
+    <!-- release resources or clear up in finally block,
+    NOTE: common exceptions thrown from finally block will be suppressed  -->
+    <finally>
+    </finally>
+</testcase-def>
