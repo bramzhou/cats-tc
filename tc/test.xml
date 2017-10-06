@@ -10,6 +10,7 @@
         <action name="Comments" sleep="500">
             <param name="comments">Hello C-ATS</param>
         </action>
+        <fail>[Fail]Case failed!!</fail>
         <loop gaugeValue="5" increment="1" initValue="0">
         <action name="SwipePage" sleep="500">
               <param name="deviceId">${MUTDevice}</param>
