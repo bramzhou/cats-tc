@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testcase-def logicName="null" description="null" netTrafficTargetPackages="null" eventsEnabled="false" radioEnabled="false" cameraEnabled="false" cameraMuteEnabled="false" kernelEnabled="false" memEnabled="false" cpuEnabled="false" monkeyEnabled="false" logcatEnabled="true" netTrafficEnabled="false">
+<init>
+
+</init>
+
+<errhandler name="exp2">
+    <action name="ImageCompareDirectly" errhandler="exp1">
+        <param name="comparedImg">${rootPath}/benchmarks/2.png</param>
+        <param name="benchmark">${rootPath}/benchmarks/1.png</param>
+	</action>
+    <action name="Comments">
+        <param name="comments">exp2 handler</param>
+    </action>
+</errhandler>
+
+<errhandler name="exp1">
+    <action name="Comments">
+        <param name="comments">exp1 handler</param>
+    </action>
+</errhandler>
+
+<main>
+	
+	<action name="ImageCompareDirectly" errhandler="exp2">
+        <param name="comparedImg">${rootPath}/benchmarks/1.png</param>
+        <param name="benchmark">${rootPath}/benchmarks/2.png</param>
+	</action>
+	<action name="ImageCompareDirectly" errhandler="exp1"> 
+        <param name="comparedImg">${rootPath}/benchmarks/2.png</param>
+        <param name="benchmark">${rootPath}/benchmarks/1.png</param>
+	</action>
+        <action name="Delay">
+            <param name="millitime">2000</param>
+        </action>
+        <action name="Comments">
+            <param name="comments">out of errhandler</param>
+        </action>
+
+</main>
+
+<finally>
+
+</finally>
+
+</testcase-def>
